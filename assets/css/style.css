@@ -1966,6 +1966,23 @@ textarea {
   .content-split__text p {
     max-width: none;
   }
+  .app-download-band__inner {
+    justify-content: center;
+    text-align: center!important;
+  }
+  .app-download-band__inner .mobile-app-badges {
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+  .app-download-band__inner .mobile-app-badges .mobile-app-badges-inner {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .app-download-band__inner .mobile-app-badges a {
+    min-height: 50px;
+    min-width: 155px;
+  }
 }
 .app-download-band {
   background: var(--primary);
