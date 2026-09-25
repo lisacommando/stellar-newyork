@@ -1860,7 +1860,7 @@ textarea {
   border-right: 2px solid rgba(255, 255, 255, 0.6);
 }
 .hero-features__item i {
-  font-size: clamp(1.5rem, 5vw, 50px);
+  font-size: clamp(2.5rem, 5vw, 50px);
   color: #FFF;
 }
 .hero-features__item span {
@@ -1876,7 +1876,7 @@ textarea {
   justify-content: center;
   gap: 1.5rem;
   min-height: 110px;
-  padding: 1.25rem 1rem;
+  padding: 2rem 1rem;
   text-decoration: none;
   transition: all 0.3s ease;
 }
@@ -1893,25 +1893,30 @@ textarea {
   border-right: none;
 }
 @media (max-width: 900px) {
+  .hero-features {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
   .hero-features__list {
     grid-template-columns: repeat(2, 1fr);
   }
+  .hero-features__item:nth-child(1),
+  .hero-features__item:nth-child(2) {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
+  }
   .hero-features__item:nth-child(2) {
     border-right: none;
-  }
-  .hero-features__item:nth-child(1),
-  .hero-features__item:nth-child(3) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
   }
 }
 @media (max-width: 520px) {
   .hero-features__list {
     grid-template-columns: 1fr;
+    margin-top: 5rem;
   }
   .hero-features__item {
     border-right: none;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     min-height: 88px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.6);
   }
   .hero-features__item:last-child {
     border-bottom: none;
