@@ -1,0 +1,14 @@
+{
+  "name": "stellar-utah",
+  "private": true,
+  "scripts": {
+    "build:css": "grunt less",
+    "watch:css": "grunt watch",
+    "dev": "grunt"
+  },
+  "devDependencies": {
+    "grunt": "^1.6.1",
+    "grunt-contrib-less": "^3.0.0",
+    "grunt-contrib-watch": "^1.1.0"
+  }
+}

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stellar New York Template - Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <script src="https://kit.fontawesome.com/03464ed8bf.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="announcement-bar" role="region" aria-label="Announcement">
+    Lorem ipsum dolor sit amet consectetur, adipiscing elit interdum curabitur est imperdiet.
+    <button type="button" class="announcement-bar__close">
+      <span class="sr-only">Dismiss announcement</span>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%"><g fill="none" stroke="#ffffff" stroke-width="20" stroke-linecap="round"><line x1="40" y1="40" x2="160" y2="160" /><line x1="40" y1="160" x2="160" y2="40" /></g></svg>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <div class="utility-bar">
+      <div class="utility-bar__inner container-padding">
+        <div class="utility-bar__contact">
+          <span>12345 Test Avenue Sample, ST 90210</span>
+          <span class="utility-bar__sep" aria-hidden="true">|</span>
+          <a href="tel:1234567890">(123) 456-7890</a>
+          <span class="utility-bar__sep" aria-hidden="true">|</span>
+          <a href="mailto:sample@sampleemail.com">sample@sampleemail.com</a>
+        </div>
+        <div class="utility-bar__access">
+          <button
+            type="button"
+            class="utility-bar__account-access mobile-online-banking__toggle"
+            aria-expanded="false"
+            aria-controls="online-banking-content"
+          >
+            Account Access
+          </button>
+          <div class="online-banking-container online-banking-container--dropdown" aria-labelledby="online-banking-title">
+            <div id="online-banking-content" class="online-banking-content" aria-hidden="true">
+              <div class="online-banking__inner">
+                <div class="inner-wrap">
+                  <div class="online-banking__header">
+                    <span class="online-banking__header-icon" aria-hidden="true">
+                      <i class="fa-solid fa-right-to-bracket" aria-hidden="true"></i>
+                    </span>
+                    <span id="online-banking-title">Online Banking</span>
+                  </div>
+                  <div class="online-banking__form">
+                    <form action="#" method="post">
+                      <div class="form-field">
+                        <label for="username">Username</label>
+                        <input id="username" name="username" type="text" autocomplete="username" placeholder="Username" />
+                      </div>
+                      <div class="form-field">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password" autocomplete="current-password" placeholder="Password" />
+                      </div>
+                      <div class="form-button">
+                        <button type="submit" class="btn btn--primary">Login</button>
+                      </div>
+                    </form>
+                    <div class="form-links">
+                      <a class="online-banking__enroll" href="#">Enroll</a>
+                      <a class="online-banking__forgot-password" href="#">Forgot Password?</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-header__brand-row">
+      <div class="site-header__brand-inner container-padding">
+        <nav class="site-header__nav site-header__nav--left" aria-label="Primary left">
+          <ul class="site-header__nav-links">
+            <li class="nav-item nav-item-has-folder">
+              <button type="button" class="nav-item-link nav-folder-toggle" aria-expanded="false" aria-controls="sub-nav-folder__accounts" aria-haspopup="true">Accounts</button>
+              <div class="sub-nav-folder" id="sub-nav-folder__accounts" aria-hidden="true">
+                <ul class="sub-nav">
+                  <li><a href="/internal.html" class="sub-nav-item">Checking</a></li>
+                  <li><a href="#" class="sub-nav-item">Savings</a></li>
+                  <li><a href="#" class="sub-nav-item">Certificates</a></li>
+                  <li><a href="#" class="sub-nav-item">Money Market</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-item-link">Loans</a></li>
+            <li class="nav-item"><a href="#" class="nav-item-link">Rates</a></li>
+          </ul>
+        </nav>
+
+        <a class="site-header__logo-block" href="/">
+          <img src="/assets/img/logo.svg" alt="Stellar New York Credit Union" width="200" height="61" />
+        </a>
+
+        <nav class="site-header__nav site-header__nav--right" aria-label="Primary right">
+          <ul class="site-header__nav-links">
+            <li class="nav-item"><a href="#" class="nav-item-link">Services</a></li>
+            <li class="nav-item"><a href="#" class="nav-item-link">Resources</a></li>
+            <li class="nav-item"><a href="#" class="nav-item-link">About Us</a></li>
+          </ul>
+        </nav>
+
+        <button
+          type="button"
+          class="main-nav__toggle site-header__menu-toggle"
+          aria-expanded="false"
+          aria-controls="main-nav-menu"
+        >
+          <span class="main-nav__toggle-label">Menu</span>
+          <i class="fa-solid fa-bars main-nav__toggle-icon" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="mobile-site-primary-navigation" aria-label="Main navigation" aria-hidden="true">
+      <div class="main-nav__backdrop" aria-hidden="true"></div>
+      <div class="mobile-site-primary-navigation__inner container-padding">
+        <nav id="main-nav-menu" class="main-nav" aria-label="Main" aria-hidden="true">
+          <button type="button" class="main-nav__close">
+            <span class="sr-only">Close main navigation</span>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+          </button>
+          <div id="mobile-nav-content" class="main-nav__inner">
+            <!-- mobile main navigation content goes here -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content" id="main-content">
+
+    <section class="hero hero--home" aria-labelledby="hero-heading">
+      <div class="hero__image" style="background-image: url('/assets/img/hero.jpg');"></div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+      <div class="hero__inner hero__inner--center">
+        <div class="hero__content">
+          <h1 id="hero-heading" class="hero-heading">Lorem ipsum dolor</h1>
+          <p>Sit amet consectetur adipiscing, elit dictum hendrerit.</p>
+          <a href="#" class="btn btn--primary">Lorem Ipsum</a>
+        </div>
+      </div>
+      <div class="hero-features" aria-label="Highlights">
+        <ul class="hero-features__list">
+          <li class="hero-features__item">
+            <a href="#" class="hero-features__link">
+              <i class="fa-thin fa-business-time" aria-hidden="true"></i>
+              <span>Lorem Ipsum</span>
+            </a>
+          </li>
+          <li class="hero-features__item">
+            <a href="#" class="hero-features__link">
+              <i class="fa-sharp fa-thin fa-people-roof" aria-hidden="true"></i>
+              <span>Dolor Sit Amet</span>
+            </a>
+          </li>
+          <li class="hero-features__item">
+            <a href="#" class="hero-features__link">
+              <i class="fa-thin fa-hands-holding-heart" aria-hidden="true"></i>
+              <span>Consectetur</span>
+            </a>
+          </li>
+          <li class="hero-features__item">
+            <a href="#" class="hero-features__link">
+              <i class="fa-thin fa-ship" aria-hidden="true"></i>
+              <span>Elit Dictum</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="content-split" aria-labelledby="content-split-heading">
+      <div class="content-split__inner container-padding">
+        <div class="content-split__text">
+          <h2 id="content-split-heading">Lorem Ipsum Dolor Sit Amet</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </p>
+          <a href="#" class="btn btn--primary">Lorem Ipsum</a>
+        </div>
+        <div class="content-split__media">
+          <img src="/assets/img/promo.jpg" alt="Statue of Liberty on the New York Harbor" width="640" height="480" />
+        </div>
+      </div>
+    </section>
+
+    <section class="app-download-band" aria-labelledby="app-download-heading">
+      <div class="app-download-band__inner container-padding">
+        <p id="app-download-heading">Download our mobile app and access your account from anywhere!</p>
+        <div class="mobile-app-badges">
+          <div class="mobile-app-badges-inner">
+            <a href="#" class="app-badge app-badge--apple">
+              <span class="sr-only">Download on the App Store</span>
+            </a>
+            <a href="#" class="app-badge app-badge--google">
+              <span class="sr-only">Get it on Google Play</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer site-footer--home">
+    <div class="site-footer__skyline" aria-hidden="true"><span class="background-image" style="background-image: url('/assets/img/footer-bg.jpg');"></span></div>
+    <div class="site-footer__main container-padding">
+      <div class="site-footer__grid">
+        <div class="site-footer-col __contact">
+          <h3>Contact Us</h3>
+          <address>
+            12345 Test Avenue Sample, ST 90210<br />
+            Phone: (123) 456-7890<br />
+            Email: sample@sampleemail.com
+          </address>
+          <p>
+            <strong>Routing Number:</strong> 123456789<br>
+            <strong>NMLS #:</strong> 56789
+          </p>
+        </div>
+        <div class="site-footer-col __quick-links">
+          <h3>Quick Links</h3>
+          <ul class="quick-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Calculators</a></li>
+          </ul>
+        </div>
+        <div class="site-footer-col __message-form">
+          <h3>Message Us</h3>
+          <form class="contact-form" action="#" method="post">
+            <label for="footer-email">Email (required)</label>
+            <input id="footer-email" name="email" type="email" required />
+            <label for="footer-message">Message (required)</label>
+            <textarea id="footer-message" name="message" required></textarea>
+            <button type="submit" class="btn btn--primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="site-footer__bottom container-padding">
+      <div class="site-footer__bottom-inner">
+        <div class="site-footer__legal">
+          <p>
+            *APR = Annual percentage rate. Rate based on creditworthiness and term of loan.<br>
+            **APY = Annual percentage yield. Rates are subject to change at any time and are not guaranteed.
+          </p>
+          <p>
+            We provide links to third party partners, independent from Stellar Website Designs. These links are provided only as a convenience. We do not manage the content of those sites. The privacy and security policies of external websites will differ from those of Stellar Website Designs.
+          </p>
+        </div>
+        <div class="site-footer__partners site-footer__partners--home">
+          <a href="https://ncua.gov/" target="_blank" rel="noopener noreferrer" aria-label="Go to NCUA website">
+            <img src="/assets/img/ncua-blk.svg" alt="" width="120" height="64" />
+          </a>
+          <a href="https://www.hud.gov/" target="_blank" rel="noopener noreferrer" aria-label="Go to Equal Housing Lender website">
+            <img src="/assets/img/ehl-blk.svg" alt="" width="64" height="64" />
+          </a>
+        </div>
+      </div>
+      <p class="site-footer__powered">
+        <a href="https://www.omnicommander.com/" target="_blank" rel="noopener noreferrer">
+          <span class="sr-only">Powered by: OMNICOMMANDER</span>
+          <img src="/assets/img/omnicommander.svg" alt="Omnicommander Logo" />
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="/assets/js/custom.js" defer></script>
+</body>
+</html>
