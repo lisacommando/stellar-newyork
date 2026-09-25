@@ -372,6 +372,10 @@ textarea {
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
   .site-header .main-nav__toggle:hover {
     background: var(--primary);
@@ -1767,6 +1771,15 @@ textarea {
 .utility-bar__contact a:focus {
   color: var(--secondary);
 }
+@media screen and (max-width: 1250px) {
+  .utility-bar__contact {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 0;
+  }
+}
 .utility-bar__sep {
   opacity: 0.45;
 }
@@ -1794,6 +1807,12 @@ textarea {
 .utility-bar__account-access:focus-visible {
   outline: 2px solid var(--primary);
   outline-offset: -3px;
+}
+@media screen and (max-width: 1250px) {
+  .utility-bar__account-access {
+    width: 100%;
+    text-align: center;
+  }
 }
 .hero-features {
   position: relative;
@@ -2084,6 +2103,13 @@ textarea {
   outline: 2px solid #FFF;
   outline-offset: -3px;
 }
+@media screen and (max-width: 1250px) {
+  .site-header:has(.utility-bar) .site-header__logo-block {
+    position: absolute;
+    left: 30px;
+    transform: none;
+  }
+}
 .site-header:has(.utility-bar) .site-header__nav-links {
   display: flex;
   flex-wrap: wrap;
@@ -2239,6 +2265,58 @@ textarea {
     display: flex;
     grid-column: 2;
   }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged > li {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.25);
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged li > a,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .nav-item-link {
+    display: flex;
+    width: 100%;
+    min-height: unset;
+    justify-content: flex-start;
+    padding: 0.875rem 0.5rem;
+    color: #fff;
+    font-size: 1rem;
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged li > a:hover,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .nav-item-link:hover,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged li > a:focus,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .nav-item-link:focus {
+    background: rgba(0, 0, 0, 0.25);
+    color: #fff;
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged li > a:focus-visible,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .nav-item-link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .sub-nav-folder {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: none;
+    box-shadow: none;
+    border-radius: 0;
+    min-width: 0;
+    background: rgba(0, 0, 0, 0.22);
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .sub-nav-item {
+    color: #fff;
+  }
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .sub-nav-item:hover,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .sub-nav-item:focus,
+  .site-header:has(.utility-bar) #mobile-nav-content .site-header__nav-links--merged .sub-nav-item:focus-visible {
+    background: var(--secondary);
+    color: #fff;
+  }
 }
 @media screen and (min-width: 1251px) {
   .site-header:has(.utility-bar) .mobile-site-primary-navigation {
@@ -2252,6 +2330,12 @@ textarea {
 }
 .utility-bar__access {
   position: relative;
+}
+@media screen and (max-width: 1250px) {
+  .utility-bar__access {
+    width: 100%;
+    text-align: center;
+  }
 }
 .online-banking-container--dropdown {
   position: absolute;

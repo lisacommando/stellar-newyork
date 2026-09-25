@@ -6,6 +6,9 @@ document.querySelector(".announcement-bar__close")?.addEventListener("click", fu
 /** Closes all primary-nav dropdown folders; reassigned when folder toggles are initialized. */
 let closeAllNavFolders = function () {};
 
+/** Matches `@ipad-width` (1250px) — header inline nav vs mobile drawer. */
+const HEADER_NAV_MOBILE_QUERY = window.matchMedia("(max-width: 1250px)");
+
 /**
  * Wires Accounts (and other) nav folder toggles: click accordion, keyboard focus,
  * Escape, outside click, and closes folders when the mobile breakpoint changes.
@@ -15,8 +18,6 @@ function initNavFolderToggle() {
   if (!folderToggles.length) {
     return;
   }
-
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
 
   /** Updates ARIA and classes for one folder open/closed state. */
   function setFolderOpen(toggle, open) {
@@ -113,11 +114,101 @@ function initNavFolderToggle() {
     closeAllNavFolders();
   });
 
-  mobileQuery.addEventListener("change", function () {
+  HEADER_NAV_MOBILE_QUERY.addEventListener("change", function () {
     closeAllNavFolders();
   });
 
   closeAllNavFolders();
+}
+
+/**
+ * At ≤1250px, merges left/right `.site-header__nav-links` into `#mobile-nav-content`;
+ * restores each item to its original list above that breakpoint.
+ */
+function initHeaderNavLinksPlacement() {
+  const leftList = document.querySelector(".site-header__nav--left .site-header__nav-links");
+  const rightList = document.querySelector(".site-header__nav--right .site-header__nav-links");
+  const mobileContent = document.getElementById("mobile-nav-content");
+  if (!leftList || !rightList || !mobileContent) {
+    return;
+  }
+
+  /** Persists desktop home slot on each nav item for restore. */
+  function tagNavItems() {
+    leftList.querySelectorAll(":scope > li").forEach(function (item, index) {
+      item.dataset.navSlot = "left";
+      item.dataset.navIndex = String(index);
+    });
+
+    rightList.querySelectorAll(":scope > li").forEach(function (item, index) {
+      item.dataset.navSlot = "right";
+      item.dataset.navIndex = String(index);
+    });
+  }
+
+  /** @returns {HTMLUListElement | null} */
+  function getMergedList() {
+    return mobileContent.querySelector("ul.site-header__nav-links--merged");
+  }
+
+  function moveToMobile() {
+    let mergedList = getMergedList();
+
+    if (!mergedList) {
+      mergedList = document.createElement("ul");
+      mergedList.className = "main-nav__links site-header__nav-links site-header__nav-links--merged";
+      mobileContent.appendChild(mergedList);
+    }
+
+    leftList.querySelectorAll(":scope > li").forEach(function (item) {
+      mergedList.appendChild(item);
+    });
+
+    rightList.querySelectorAll(":scope > li").forEach(function (item) {
+      mergedList.appendChild(item);
+    });
+  }
+
+  function moveToDesktop() {
+    const mergedList = getMergedList();
+    if (!mergedList) {
+      return;
+    }
+
+    const items = [...mergedList.querySelectorAll(":scope > li")];
+    items.sort(function (a, b) {
+      const slotOrder = { left: 0, right: 1 };
+      const slotDiff =
+        (slotOrder[a.dataset.navSlot] ?? 0) - (slotOrder[b.dataset.navSlot] ?? 0);
+
+      if (slotDiff !== 0) {
+        return slotDiff;
+      }
+
+      return Number(a.dataset.navIndex || 0) - Number(b.dataset.navIndex || 0);
+    });
+
+    items.forEach(function (item) {
+      const targetList = item.dataset.navSlot === "right" ? rightList : leftList;
+      targetList.appendChild(item);
+    });
+
+    mergedList.remove();
+    closeAllNavFolders();
+  }
+
+  function placeNavLinks() {
+    if (HEADER_NAV_MOBILE_QUERY.matches) {
+      moveToMobile();
+      return;
+    }
+
+    moveToDesktop();
+  }
+
+  tagNavItems();
+  HEADER_NAV_MOBILE_QUERY.addEventListener("change", placeNavLinks);
+  placeNavLinks();
 }
 
 /**
@@ -130,7 +221,6 @@ function initMainNavToggle() {
   const menu = document.getElementById("main-nav-menu");
   if (!navigation || !toggle || !menu) return;
 
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
   const backdrop = navigation.querySelector(".main-nav__backdrop");
   const closeButton = menu.querySelector(".main-nav__close");
   const toggleLabel = toggle.querySelector(".main-nav__toggle-label");
@@ -147,7 +237,7 @@ function initMainNavToggle() {
     toggle.classList.toggle("main-nav__toggle--open", open);
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
 
-    if (mobileQuery.matches) {
+    if (HEADER_NAV_MOBILE_QUERY.matches) {
       menu.setAttribute("aria-hidden", open ? "false" : "true");
       document.body.classList.toggle("main-nav-open", open);
 
@@ -173,7 +263,7 @@ function initMainNavToggle() {
         : "fa-solid fa-bars main-nav__toggle-icon";
     }
 
-    if (open && mobileQuery.matches) {
+    if (open && HEADER_NAV_MOBILE_QUERY.matches) {
       closeButton?.focus();
     }
 
@@ -212,7 +302,7 @@ function initMainNavToggle() {
     }
   });
 
-  mobileQuery.addEventListener("change", function () {
+  HEADER_NAV_MOBILE_QUERY.addEventListener("change", function () {
     setMenuOpen(false);
   });
 
@@ -533,6 +623,7 @@ function initSidebarNavigationDropdown(sidebar, toggle, panel) {
 
 /** Runs all page feature initializers after the DOM is ready. */
 function initSiteScripts() {
+  initHeaderNavLinksPlacement();
   initNavFolderToggle();
   initMainNavToggle();
   initSocialLinksPlacement();

@@ -410,6 +410,10 @@ textarea {
       text-transform: uppercase;
       cursor: pointer;
       transition: @transition;
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
       &:hover {
         background: var(--primary);
         color: #FFF;
@@ -1884,6 +1888,13 @@ textarea {
       color: var(--secondary);
     }
   }
+  @media screen and (max-width: @ipad-width) {
+    width: 100%;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 0 0;
+  }
 }
 
 .utility-bar__sep {
@@ -1912,6 +1923,10 @@ textarea {
   &:focus,&:focus-visible {
     outline: 2px solid var(--primary);
     outline-offset: -3px;
+  }
+  @media screen and (max-width: @ipad-width) {
+    width: 100%;
+    text-align: center;
   }
 }
 
@@ -2235,6 +2250,11 @@ textarea {
       outline: 2px solid #FFF;
       outline-offset: -3px;
     }
+    @media screen and (max-width: @ipad-width) {
+      position: absolute;
+      left: 30px;
+      transform: none;
+    }
   }
 
   .site-header__nav-links {
@@ -2406,6 +2426,63 @@ textarea {
       display: flex;
       grid-column: 2;
     }
+
+    #mobile-nav-content .site-header__nav-links--merged {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      width: 100%;
+
+      > li {
+        width: 100%;
+        border-top: 1px solid fade(#fff, 25%);
+      }
+
+      li > a,
+      .nav-item-link {
+        display: flex;
+        width: 100%;
+        min-height: unset;
+        justify-content: flex-start;
+        padding: 0.875rem 0.5rem;
+        color: #fff;
+        font-size: 1rem;
+
+        &:hover,
+        &:focus {
+          background: fade(#000, 25%);
+          color: #fff;
+        }
+
+        &:focus-visible {
+          outline: 2px solid #fff;
+          outline-offset: -2px;
+        }
+      }
+
+      .sub-nav-folder {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
+        box-shadow: none;
+        border-radius: 0;
+        min-width: 0;
+        background: fade(#000, 22%);
+      }
+
+      .sub-nav-item {
+        color: #fff;
+
+        &:hover,
+        &:focus,
+        &:focus-visible {
+          background: var(--secondary);
+          color: #fff;
+        }
+      }
+    }
   }
 
   .mobile-site-primary-navigation {
@@ -2423,6 +2500,10 @@ textarea {
 
 .utility-bar__access {
   position: relative;
+  @media screen and (max-width: @ipad-width) {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 .online-banking-container--dropdown {
